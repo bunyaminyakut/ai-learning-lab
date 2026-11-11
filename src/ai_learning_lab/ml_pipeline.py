@@ -2,7 +2,12 @@ import pandas as pd
 
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import (
+    accuracy_score,
+    confusion_matrix,
+    precision_score,
+    recall_score,
+)
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -53,3 +58,10 @@ print("\nResults:")
 print(results)
 
 
+matrix = confusion_matrix(y_test, predictions)
+
+print("\nConfusion Matrix:")
+print(matrix)
+
+print("Precision:", precision_score(y_test, predictions))
+print("Recall:", recall_score(y_test, predictions))
